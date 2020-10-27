@@ -3876,7 +3876,7 @@ bool X86InstrInfo::isZeroTest(MachineBasicBlock &MBB,
   SmallVector<MachineOperand, 4> Cond;
   MachineBasicBlock *TBB = 0, *FBB = 0;
 
-  if (analyzeBranch(MBB, TBB, FBB, Cond, true) || Cond.size() != 1)
+  if (analyzeBranch(MBB, TBB, FBB, Cond, false) || Cond.size() != 1)
     return false;
 
   switch (Cond[0].getImm()) {
